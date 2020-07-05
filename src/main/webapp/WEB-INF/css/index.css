@@ -1,0 +1,151 @@
+@-ms-viewport {
+    width: device-width;
+}
+@-o-viewport {
+    width: device-width;
+}
+@viewport {
+    width: device-width;
+}
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+li {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+#header-title {
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+    border-bottom: 2px solid;
+    padding: 1%;
+    font-weight: 600;
+    background: #111111;
+    color: white;
+}
+.banner-section {
+    width: 100vw;
+    background-size: cover;
+    height: 100vh;
+    background-image: url(/img/pen-4337521_1920.jpg);
+    background-repeat: no-repeat;
+}
+.content-section {
+    background: white;
+}
+.content-section img {
+    width: 100%;
+    height: 30%;
+}
+
+.content-box {
+    width: 24%;
+    border: none;
+    padding: 0%;
+    display: inline-block;
+    box-shadow: 1px 2px 3px black;
+    margin-left: 6.5%;
+    margin-top: 2%;
+}
+.content-box > dl > dt {
+    text-align: center;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-weight: 1000;
+}
+.content-box > dl > dd {
+    margin: 8% 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    line-height: 1.4em;
+    height: 5.6em;
+    width: 100%;
+    text-align: center;
+}
+.content-box > button {
+    padding: 5%;
+    text-transform: uppercase;
+    color: white;
+    background: black;
+    border: 1px solid black;
+    box-shadow: 1px 3px 5px grey;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    line-height: 32px;
+    position: relative;
+}
+
+.content-box > button > span {
+    z-index: 2;
+}
+
+.content-box > button::after {
+    content: '';
+    height: 155px;
+    left: -75px;
+    opacity: 0.2;
+    position: absolute;
+    top: -50px;
+    background: #fff;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+    -webkit-transition: all 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.55s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: 1;
+}
+.content-box > button:hover::after {
+    left: 120%;
+}
+#content-title {
+    text-align: left;
+    text-transform: uppercase;
+    font-weight: 1000;
+    font-size: 30px;
+    margin-left: 6%;
+    margin-bottom: 1%;
+    font-style: italic;
+}
+@media (max-width: 1150px) {
+    .content-box {
+        background-size: cover;
+        width: 42%;
+    }
+    .content-section img {
+        height: 35%;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-section {
+        margin: -3px;
+    }
+    .content-box {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .content-section img {
+        height: 45%;
+    }
+}
