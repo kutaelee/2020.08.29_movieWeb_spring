@@ -2,3 +2,13 @@
 2020.07.05
 
 spring framework 5.5.2
+
+
+#### vscode setting.json 설정
+
+{
+    "prettier.printWidth": 200,
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": true,
+    "editor.formatOnSave": true
+}
