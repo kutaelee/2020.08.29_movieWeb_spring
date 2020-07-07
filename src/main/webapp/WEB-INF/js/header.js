@@ -27,4 +27,15 @@ window.onload = function () {
             menu.style.display = 'none';
         }
     }
+
+    $.ajax({
+        url: 'naviList',
+        type: 'GET',
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (e) {
+        	console.log(e);
+        },
+    });
 };

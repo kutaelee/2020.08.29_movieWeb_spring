@@ -35,7 +35,7 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="com.p2p.www" />
+		base-package="com.p2p.*" />
 
 
 
