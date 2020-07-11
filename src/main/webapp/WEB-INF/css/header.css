@@ -1,4 +1,4 @@
-.nav {
+nav {
     background-color: white;
     min-height: 6%;
     padding: 1%;
@@ -77,11 +77,10 @@ nav > ul > li > a {
 }
 
 @media (max-width: 600px) {
-    .nav {
+    nav {
         position: absolute;
         width: 100%;
         background: black;
-        color: white;
         margin-top: -3px;
         opacity: 0.9;
         height: 100vh;
@@ -98,6 +97,9 @@ nav > ul > li > a {
         display: flow-root;
         width: 100%;
         margin-right: 0;
+    }
+    nav > ul > li a {
+        color: white;
     }
     #menu-toggle {
         float: right;

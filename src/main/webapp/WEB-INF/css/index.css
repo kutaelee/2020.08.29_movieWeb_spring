@@ -127,6 +127,7 @@ li {
     margin-bottom: 1%;
     font-style: italic;
 }
+
 @media (max-width: 1150px) {
     .content-box {
         background-size: cover;

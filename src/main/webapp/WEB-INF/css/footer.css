@@ -1,0 +1,13 @@
+#footerSection {
+    margin-top: 3%;
+    background: black;
+    height: 10vh;
+    text-align: center;
+}
+
+#footerSection > p {
+    color: white;
+    margin: 0;
+    top: 24px;
+    position: relative;
+}
