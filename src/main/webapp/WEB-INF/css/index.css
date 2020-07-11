@@ -7,6 +7,9 @@
 @viewport {
     width: device-width;
 }
+button{
+	outline: none;
+}
 body {
     margin: 0;
     overflow-x: hidden;
@@ -46,7 +49,7 @@ li {
 }
 .content-section img {
     width: 100%;
-    height: 30%;
+    height: 30vh;
 }
 
 .content-box {
@@ -134,7 +137,7 @@ li {
         width: 42%;
     }
     .content-section img {
-        height: 35%;
+        height: 35vh;
     }
 }
 
@@ -147,6 +150,6 @@ li {
         margin-left: 10%;
     }
     .content-section img {
-        height: 45%;
+        height: 45vh;
     }
 }

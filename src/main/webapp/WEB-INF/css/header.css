@@ -1,19 +1,38 @@
+body {
+    overflow-x: hidden;
+}
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+td {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+h2 {
+    letter-spacing: 1px;
+}
 nav {
     background-color: white;
     min-height: 6%;
     padding: 1%;
     margin: 0;
+    box-shadow: 1px 2px 3px grey;
 }
+
 nav > ul {
     display: block;
     list-style: none;
     text-align: right;
     margin-right: 5%;
 }
+
 nav > ul > li {
     margin-right: 2%;
     display: inline-block;
 }
+
 nav > ul > li > a {
     font-size: 20px;
     cursor: pointer;
@@ -75,7 +94,9 @@ nav > ul > li > a {
     transform: rotate(45deg) translate(-7px, -7px);
     transition: 2s;
 }
-
+button {
+    outline: none;
+}
 @media (max-width: 600px) {
     nav {
         position: absolute;

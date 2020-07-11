@@ -1,6 +1,87 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>게시판 - MovieJoa</title>
+    </head>
     <body>
-        <p>MOVIEJOA COPYRIGHT 2020.07.11</p>
+        <h1 id="header-title">MovieJoa</h1>
+        <header id="header"></header>
+        <h2 id="menu-title">영화</h2>
+        <section class="content-section">
+            <table>
+                <tbody>
+                    <tr class="t-head">
+                        <th class="seq">번호</th>
+                        <th class="title">제목</th>
+                        <th class="regdate">작성일자</th>
+                        <th class="nickname">작성자</th>
+                    </tr>
+                    <tr class="t-content" seq="1">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                    <tr class="t-content">
+                        <td class="seq">1</td>
+                        <td class="title">영화제목입니다</td>
+                        <td class="regdate">2020.07.01</td>
+                        <td class="nickname">닉네임예시</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="pageNumber-section">
+            <a id="prev"><</a>
+            <a class="pagenum" id="current-pagenum">1</a>
+            <a class="pagenum">2</a>
+            <a class="pagenum">3</a>
+            <a class="pagenum">4</a>
+            <a class="pagenum">5</a>
+            <a class="pagenum">6</a>
+            <a id="next">></a>
+        </section>
+        <footer id="footer"></footer>
     </body>
+    <link rel="stylesheet" href="/css/board.css?ver=13" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/js/board.js?ver=51" type="text/javascript"></script>
 </html>
