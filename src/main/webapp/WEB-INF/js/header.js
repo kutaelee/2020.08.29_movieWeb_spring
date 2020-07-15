@@ -27,10 +27,13 @@ window.onload = function () {
     }
 
     $.ajax({
-        url: 'naviList',
+        url: '/naviList',
         type: 'GET',
+        dataType: 'json',
         success: function (result) {
-            console.log(result);
+            for (let item of result) {
+                $('#nav-menu').append('<li><a href="' + item.LINK + '">' + item.MENU_NAME + '</a></li>');
+            }
         },
         error: function (e) {
             console.log(e);
