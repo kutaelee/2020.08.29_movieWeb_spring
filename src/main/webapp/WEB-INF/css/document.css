@@ -43,7 +43,8 @@ button {
 .document-section > img {
     width: 30%;
     margin-top: 2%;
-    position: absolute;
+    position: relative;
+    box-shadow: 2px 2px 7px grey;
 }
 .document-section > button {
     background: black;
@@ -99,7 +100,7 @@ button {
 }
 .contents > p {
     width: 90%;
-    line-height: 1.5em;
+    line-height: 2em;
 }
 #download-button {
     width: 80%;

@@ -23,7 +23,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@GetMapping(value = "/")
-	public String home(Locale locale, Model model) {
+	public String home() {
 		return "index";
 	}
 	

@@ -1,5 +1,8 @@
 package com.p2p.www.common;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -78,16 +81,19 @@ public class Crawling {
 	}
 
 	public static void main(String args[]) throws IOException {
-		Crawling cl = new Crawling();
-		ArrayList<HashMap<String, String>> contents = new ArrayList<HashMap<String, String>>();
-		contents=cl.getContents(cl.getLink("https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?year=2000&page=1", ".directory_list>li>a")); 
-		System.out.println(contents.get(0).get("title"));
-		System.out.println(contents.get(0).get("poster"));
-		System.out.println(contents.get(0).get("content"));
-		System.out.println(contents.get(0).get("people"));
-		for(HashMap<String,String> content:contents) {
+		
+		  Crawling cl = new Crawling(); ArrayList<HashMap<String, String>> contents =
+		  new ArrayList<HashMap<String, String>>(); contents=cl.getContents(cl.getLink(
+		  "https://movie.naver.com/movie/sdb/browsing/bmovie.nhn?year=2000&page=1",
+		  ".directory_list>li>a")); System.out.println(contents.get(0).get("title"));
+		  System.out.println(contents.get(0).get("poster"));
+		  System.out.println(contents.get(0).get("content"));
+		  System.out.println(contents.get(0).get("people")); for(HashMap<String,String>
+		  content:contents) {
+		  
+		  }
+		 
 
-		}
 	}
 
 }
