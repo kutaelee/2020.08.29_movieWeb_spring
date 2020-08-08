@@ -18,4 +18,8 @@ public class BoardDao {
 		return sqlsession.selectList("board.boardList",pageNum);
 	}
 
+	public int getBoardCount(String link) {
+		return sqlsession.selectOne("board.getBoardCount",link);
+	}
+
 }

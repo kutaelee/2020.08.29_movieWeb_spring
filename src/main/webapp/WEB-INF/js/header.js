@@ -1,5 +1,4 @@
 window.onload = function () {
-    console.log('a');
     // 모바일 네비게이션 토글
     $('#menu-toggle').click(function () {
         let nav = document.getElementsByClassName('nav');

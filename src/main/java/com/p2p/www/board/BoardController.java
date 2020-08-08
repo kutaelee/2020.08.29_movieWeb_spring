@@ -19,10 +19,17 @@ public class BoardController {
 	@GetMapping("/boardList")
 	public List<HashMap<String, Object>> boardList(WebRequest request) {
 		int pageNum = 1;
+		int count = bd.getBoardCount(request.getParameter("link"));
+		int lastPage = (int) Math.ceil(count / 10d);
 		try {
-
 			if (!ObjectUtils.isEmpty(request.getParameter("pageNum"))) {
 				pageNum = Integer.parseInt(request.getParameter("pageNum"));
+				if (pageNum > lastPage) {
+					pageNum = lastPage;
+				} else if (pageNum < 0) {
+					pageNum = 1;
+				}
+
 			}
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
@@ -32,5 +39,11 @@ public class BoardController {
 		list = bs.regDateFormat(list);
 
 		return list;
+	}
+
+	@GetMapping("/getBoardCount")
+	public int getBoardCount(WebRequest request) {
+
+		return bd.getBoardCount(request.getParameter("link"));
 	}
 }

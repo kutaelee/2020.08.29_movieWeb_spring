@@ -9,5 +9,8 @@
 	<select id="boardList" parameterType="int" resultType="hashMap">
 		SELECT DOCUMENT_SEQ,TITLE,REG_DATE FROM document WHERE MENU_SEQ=2 AND DEL_YN='N' order by DOCUMENT_SEQ desc limit #{pageNum},10;
 	</select>
+	<select id="getBoardCount" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM DOCUMENT WHERE MENU_SEQ=(SELECT MENU_SEQ FROM MENU WHERE LINK=#{link});
+	</select>
 </mapper>
   

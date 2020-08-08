@@ -6,8 +6,8 @@ header {
     top: 0;
     z-index: 100;
 }
-button{
-	outline: none;
+button {
+    outline: none;
 }
 #header-title {
     width: 100%;
@@ -84,12 +84,14 @@ button{
     border-radius: 10px;
     color: white;
     background: black;
+    margin: 0 3px;
 }
 .pageNumber-section > a:hover {
     color: orangered;
 }
-#current-pagenum {
+#current-page {
     color: orangered;
     font-weight: 1000;
     cursor: default;
+    pointer-events: none;
 }
