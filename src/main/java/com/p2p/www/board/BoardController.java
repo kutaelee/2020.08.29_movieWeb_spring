@@ -18,8 +18,17 @@ public class BoardController {
 
 	@GetMapping("/boardList")
 	public List<HashMap<String, Object>> boardList(WebRequest request) {
+		HashMap<String,Object> params=new HashMap<String,Object>();
+		params.put("link", request.getParameter("link"));
+	
+		if(ObjectUtils.isEmpty(request.getParameter("keyword"))) {
+			params.put("keyword",null);
+		}else {
+			params.put("keyword",request.getParameter("keyword"));
+		}
+		
 		int pageNum = 1;
-		int count = bd.getBoardCount(request.getParameter("link"));
+		int count = bd.getBoardCount(params);
 		int lastPage = (int) Math.ceil(count / 10d);
 		try {
 			if (!ObjectUtils.isEmpty(request.getParameter("pageNum"))) {
@@ -34,8 +43,15 @@ public class BoardController {
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
+		if(ObjectUtils.isEmpty(request.getParameter("keyword"))) {
+			params.put("startNum", (count-((pageNum - 1) * 10))-10);
+			params.put("endNum", count-((pageNum - 1) * 10));
+		}else {
+			params.put("startNum",(pageNum - 1) * 10);
+		}
+		
 
-		List<HashMap<String, Object>> list = bd.boardList((pageNum - 1) * 10);
+		List<HashMap<String, Object>> list = bd.boardList(params);
 		list = bs.regDateFormat(list);
 
 		return list;
@@ -43,7 +59,10 @@ public class BoardController {
 
 	@GetMapping("/getBoardCount")
 	public int getBoardCount(WebRequest request) {
-
-		return bd.getBoardCount(request.getParameter("link"));
+		HashMap<String,Object> params=new HashMap<String,Object>();
+		params.put("link", request.getParameter("link"));
+		params.put("keyword", request.getParameter("keyword"));
+		
+		return bd.getBoardCount(params);
 	}
 }

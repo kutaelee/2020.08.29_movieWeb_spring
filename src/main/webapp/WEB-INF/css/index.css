@@ -7,8 +7,8 @@
 @viewport {
     width: device-width;
 }
-button{
-	outline: none;
+button {
+    outline: none;
 }
 body {
     margin: 0;
@@ -41,7 +41,7 @@ li {
     width: 100vw;
     background-size: cover;
     height: 100vh;
-    background-image: url(/img/pen-4337521_1920.jpg);
+    background-image: url(/img/cinema-2093264_1920.jpg);
     background-repeat: no-repeat;
 }
 .content-section {

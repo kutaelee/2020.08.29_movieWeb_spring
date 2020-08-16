@@ -14,11 +14,12 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 var getBoardCount = function (link) {
+    var keyword = getUrlParameter('keyword');
     return new Promise(function (resolve, reject) {
         $.ajax({
             url: '/getBoardCount',
             type: 'GET',
-            data: { link: link },
+            data: { link: link, keyword: keyword },
             success: function (result) {
                 resolve(result);
             },
@@ -31,8 +32,9 @@ var getBoardCount = function (link) {
 };
 var path = window.location.pathname.split('/');
 var pageNum = parseInt(getUrlParameter('pagenum'));
+var keyword = getUrlParameter('keyword');
 if (!pageNum || pageNum === '') {
-	pageNum = 1;
+    pageNum = 1;
 }
 var link = '/' + path[1] + '/' + path[2];
 $(document).ready(function () {
@@ -48,7 +50,7 @@ $(document).ready(function () {
     $.ajax({
         url: '/boardList',
         type: 'GET',
-        data: { pageNum: pageNum, link: link },
+        data: { pageNum: pageNum, link: link, keyword: keyword },
         success: function (result) {
             for (let item of result) {
                 $('.content-section>table>tbody').append('<tr seq="' + item.DOCUMENT_SEQ + '" class="t-content" id="list-' + item.DOCUMENT_SEQ + '"></tr>');
@@ -72,6 +74,9 @@ $(document).ready(function () {
 
     getBoardCount(link).then(function (result) {
         var count = parseInt(result, 10);
+        if (!keyword || keyword == '') {
+            keyword = '';
+        }
         var currentPageNum = parseInt(getUrlParameter('pagenum'));
         if (!currentPageNum || currentPageNum === '') {
             currentPageNum = 1;
@@ -91,22 +96,39 @@ $(document).ready(function () {
         $('.pageNumber-section').html('<a class="page-move-btn" id="prev"><</a>');
 
         if (count / 10.0 <= 10) {
-            for (var i = 1; i <= 10; i++) {
-                if (currentPageNum === i) {
-                    $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+            for (var i = 1; i <= Math.ceil(count / 10.0); i++) {
+                if (keyword) {
+                    if (currentPageNum === i) {
+                        $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '&keyword=' + keyword + '">' + i + '</a>');
+                    } else {
+                        $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '&keyword=' + keyword + '">' + i + '</a>');
+                    }
                 } else {
-                    $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    if (currentPageNum === i) {
+                        $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    } else {
+                        $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    }
                 }
             }
         } else {
             for (var i = lastPageNum - 9; i <= lastPageNum; i++) {
-                if (currentPageNum === i) {
-                    $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                if (keyword) {
+                    if (currentPageNum === i) {
+                        $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '&keyword=' + keyword + '">' + i + '</a>');
+                    } else {
+                        $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '&keyword=' + keyword + '">' + i + '</a>');
+                    }
                 } else {
-                    $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    if (currentPageNum === i) {
+                        $('.pageNumber-section').append('<a id="current-page" class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    } else {
+                        $('.pageNumber-section').append('<a class="pagenum" href="' + link + '?pagenum=' + i + '">' + i + '</a>');
+                    }
                 }
             }
         }
+
         $('.pageNumber-section').append('<a class="page-move-btn" id="next">></a>');
         documentCount = result;
     });
@@ -115,12 +137,12 @@ $(document).ready(function () {
         var id = this.id;
         var currentPageNum = pageNum;
         if (id === 'prev') {
-        	var num;
-        	if(currentPageNum % 10 === 0){
-        		num = currentPageNum - 10;
-        	}else{
+            var num;
+            if (currentPageNum % 10 === 0) {
+                num = currentPageNum - 10;
+            } else {
                 num = currentPageNum - (currentPageNum % 10) - 9;
-        	}
+            }
             if (num < 0) {
                 num = 1;
             }
@@ -138,6 +160,26 @@ $(document).ready(function () {
                 num = lastPage;
             }
             window.location.href = link + '?pagenum=' + num;
+        }
+    });
+
+    $('#search-btn').click(function () {
+        var keyword = $('#search-keyword').val();
+        if (keyword) {
+            document.location.href = link + '?pagenum=1&keyword=' + keyword;
+        } else {
+            document.location.href = link;
+        }
+    });
+
+    $('#search-keyword').keydown(function (e) {
+        if (e.keyCode == '13') {
+            var keyword = $('#search-keyword').val();
+            if (keyword) {
+                document.location.href = link + '?pagenum=1&keyword=' + keyword;
+            } else {
+                document.location.href = link;
+            }
         }
     });
 });

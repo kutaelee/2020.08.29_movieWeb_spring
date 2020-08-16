@@ -71,7 +71,7 @@ button {
 
 .pageNumber-section {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-bottom: 5%;
 }
 .pageNumber-section > a {
@@ -94,4 +94,37 @@ button {
     font-weight: 1000;
     cursor: default;
     pointer-events: none;
+}
+.search-section {
+    width: 85%;
+    margin-left: 15%;
+    margin-top: 1%;
+}
+.search-section > input {
+    border-radius: 3px;
+    border: 1px solid gray;
+    padding: 0px 7px;
+    font-size: 12px;
+    font-weight: 500;
+    height: 30px;
+    box-shadow: 2px 3px 3px grey;
+    outline: none;
+}
+.search-section > select {
+    padding: 3px 2px;
+    height: 30px;
+    border-radius: 3px;
+    box-shadow: 2px 3px 3px grey;
+}
+
+.search-section > button {
+    height: 32px;
+    color: white;
+    background: #121212;
+    border: 1px solid #232222;
+    border-radius: 3px;
+    padding: 0px 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px grey;
 }

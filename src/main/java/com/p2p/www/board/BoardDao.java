@@ -14,12 +14,12 @@ public class BoardDao {
 	@Autowired
 	private SqlSession sqlsession;
 	
-	public List<HashMap<String, Object>> boardList(int pageNum) {
-		return sqlsession.selectList("board.boardList",pageNum);
+	public List<HashMap<String, Object>> boardList(HashMap<String,Object> params) {
+		return sqlsession.selectList("board.boardList",params);
 	}
 
-	public int getBoardCount(String link) {
-		return sqlsession.selectOne("board.getBoardCount",link);
+	public int getBoardCount(HashMap<String,Object> params) {
+		return sqlsession.selectOne("board.getBoardCount",params);
 	}
 
 }

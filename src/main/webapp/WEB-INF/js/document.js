@@ -8,7 +8,9 @@ $(document).ready(function () {
         type: 'GET',
         data: { seq: path[3] },
         success: function (result) {
-            console.log(result);
+            if (!result.TITLE_IMG_PATH || result.TITLE_IMG_PATH == 'null') {
+                result.TITLE_IMG_PATH = '/img/imgnull.jpg';
+            }
             document.title = result.TITLE + ' - 무비조아';
             $('#document-title').text(result.TITLE);
             $('#document-img').attr('src', result.TITLE_IMG_PATH);
@@ -20,5 +22,18 @@ $(document).ready(function () {
         error: function (e) {
             console.log(e);
         },
+    });
+
+    $('#back-btn').click(function () {
+        history.go(-1);
+    });
+    $('#scroll-btn').click(function () {
+        var top = $('#download-button').offset().top;
+        $('html, body').animate({ scrollTop: top }, 1000);
+    });
+
+    $('#download-button').click(function () {
+        var title = $('#document-title').text();
+        window.open('http://www.filekok.com/partner/?p_id=mmk&path=search&section=&search_keyword=title&search=' + title + '&pop=ci&utm_source=partner&utm_medium=cpa', '_blank');
     });
 });
