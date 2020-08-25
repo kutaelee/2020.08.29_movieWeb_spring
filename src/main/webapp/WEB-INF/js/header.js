@@ -24,7 +24,9 @@ window.onload = function () {
             nav[0].style.display = 'block';
         }
     }
+};
 
+$(document).ready(function () {
     $.ajax({
         url: '/naviList',
         type: 'GET',
@@ -38,4 +40,4 @@ window.onload = function () {
             console.log(e);
         },
     });
-};
+});
