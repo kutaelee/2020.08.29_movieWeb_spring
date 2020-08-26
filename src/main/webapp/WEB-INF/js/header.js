@@ -1,4 +1,6 @@
-window.onload = function () {
+window.onload = function () {};
+
+$(document).ready(function () {
     // 모바일 네비게이션 토글
     $('#menu-toggle').click(function () {
         let nav = document.getElementsByClassName('nav');
@@ -24,9 +26,7 @@ window.onload = function () {
             nav[0].style.display = 'block';
         }
     }
-};
 
-$(document).ready(function () {
     $.ajax({
         url: '/naviList',
         type: 'GET',
@@ -39,5 +39,8 @@ $(document).ready(function () {
         error: function (e) {
             console.log(e);
         },
+    });
+    $(document).on('click', '#header-title', function (e) {
+        location.href = '/';
     });
 });
