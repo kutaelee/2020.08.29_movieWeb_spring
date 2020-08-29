@@ -30,9 +30,9 @@
 		<property name="testOnReturn" value="true" />
 		<property name="validationQuery" value="select 1" />
 		<property name="testWhileIdle" value="true" />
-		<property name="timeBetweenEvictionRunsMillis" value="130000" />
+		<property name="timeBetweenEvictionRunsMillis" value="120000" />
 		<property name="minEvictableIdleTimeMillis" value="120000" />
-		<property name="numTestsPerEvictionRun" value="20" />
+		<property name="numTestsPerEvictionRun" value="15" />
 		<property name="removeAbandonedTimeout" value="30" />
 		<property name="removeAbandonedOnBorrow" value="true" />
 		<property name="logAbandoned" value="false" />
