@@ -5,7 +5,7 @@ $(document).ready(function () {
     $.ajax({
         url: '/boardList',
         type: 'GET',
-        data: { pageNum: 2111, link: '/page/movie', keyword: '' },
+        data: { pageNum: 'index', link: '/page/movie', keyword: '' },
         success: function (result) {
             for (item of result) {
                 $.ajax({

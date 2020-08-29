@@ -52,6 +52,9 @@ $(document).ready(function () {
         type: 'GET',
         data: { pageNum: pageNum, link: link, keyword: keyword },
         success: function (result) {
+            $('.content-section>table').hide();
+            $('.content-section>h2').show();
+
             for (let item of result) {
                 $('.content-section>table>tbody').append('<tr seq="' + item.DOCUMENT_SEQ + '" class="t-content" id="list-' + item.DOCUMENT_SEQ + '"></tr>');
             }
@@ -59,10 +62,13 @@ $(document).ready(function () {
             for (let item of result) {
                 $('#list-' + item.DOCUMENT_SEQ)
                     .append('<td class="seq">' + item.DOCUMENT_SEQ + '</td>')
-                    .append('<td class="title">' + item.TITLE + '</td>')
+                    .append('<td class="title">' + item.TITLE + ' 다운로드 ' + '</td>')
                     .append('<td class="regdate">' + item.REG_DATE + '</td>')
                     .append('<td class="nicname">' + '관리자' + '</td></tr>');
             }
+
+            $('.content-section>h2').hide();
+            $('.content-section>table').show();
         },
         error: function (e) {
             console.log(e);
@@ -159,7 +165,12 @@ $(document).ready(function () {
             } else {
                 num = lastPage;
             }
-            window.location.href = link + '?pagenum=' + num;
+
+            if (!keyword || keyword == '') {
+                window.location.href = link + '?pagenum=' + num;
+            } else {
+                window.location.href = link + '?pagenum=' + num + '&keyword=' + keyword;
+            }
         }
     });
 

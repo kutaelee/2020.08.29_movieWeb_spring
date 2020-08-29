@@ -2,6 +2,7 @@ package com.p2p.www.board;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
@@ -32,7 +33,14 @@ public class BoardController {
 		int lastPage = (int) Math.ceil(count / 10d);
 		try {
 			if (!ObjectUtils.isEmpty(request.getParameter("pageNum"))) {
-				pageNum = Integer.parseInt(request.getParameter("pageNum"));
+				if(request.getParameter("pageNum").equals("index")) {
+					Random random=new Random();
+					random.setSeed(System.currentTimeMillis());
+					pageNum=random.nextInt(lastPage);
+				}else {
+					pageNum = Integer.parseInt(request.getParameter("pageNum"));
+				}
+				
 				if (pageNum > lastPage) {
 					pageNum = lastPage;
 				} else if (pageNum < 0) {

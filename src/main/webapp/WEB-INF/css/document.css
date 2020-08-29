@@ -40,6 +40,11 @@ button {
 #document-title {
     display: inline-block;
 }
+#document-tag {
+    font-size: 3px;
+    color: white;
+    user-select: none;
+}
 .document-section > img {
     width: 30%;
     margin-top: 2%;
@@ -109,11 +114,22 @@ button {
 }
 
 #download-button {
-    width: 80%;
-    margin-left: 10%;
-    height: 60px;
+    width: 30%;
+    height: 55px;
+    margin-left: 14%;
+    background: #e53131;
+    letter-spacing: 1px;
+    font-weight: 600;
 }
 
+#coupon-button {
+    width: 30%;
+    margin: 0 5%;
+    background: #f19c1f;
+    height: 55px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
 @media (max-width: 600px) {
     .document-section {
         width: 90%;

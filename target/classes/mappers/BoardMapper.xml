@@ -8,7 +8,7 @@
 <mapper namespace="board">
 	<select id="boardList" parameterType="hashMap" resultType="hashMap">
 	<if test="keyword !=null">
-		SELECT DOCUMENT_SEQ,TITLE,REG_DATE FROM DOCUMENT WHERE MENU_SEQ=2 AND DEL_YN='N' AND TITLE LIKE CONCAT('%',#{keyword},'%') order by DOCUMENT_SEQ DESC limit #{startNum},10;
+		SELECT DOCUMENT_SEQ,TITLE,REG_DATE FROM DOCUMENT WHERE MENU_SEQ=2 AND DEL_YN='N' AND TITLE LIKE CONCAT('%',#{keyword},'%') order by YEAR DESC limit #{startNum},10;
 	</if>
 	<if test="keyword == null">
 		SELECT DOCUMENT_SEQ,TITLE,REG_DATE FROM DOCUMENT WHERE MENU_SEQ=2 AND DEL_YN='N' AND <![CDATA[(DOCUMENT_SEQ > #{startNum} AND DOCUMENT_SEQ < #{endNum})]]>;
