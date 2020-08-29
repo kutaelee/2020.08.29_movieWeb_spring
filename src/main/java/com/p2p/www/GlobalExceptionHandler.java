@@ -22,8 +22,8 @@ public class GlobalExceptionHandler extends RuntimeException {
 			;
 		{
 
-			if (req.getRequestURI().equals("/robot.txt")) {
-				req.getRequestDispatcher("/resources/robot.txt").forward(req, response);
+			if (req.getRequestURI().equals("/robots.txt")) {
+				req.getRequestDispatcher("/resources/robots.txt").forward(req, response);
 			} else if (req.getRequestURI().equals("/sitemap.xml")) {
 				req.getRequestDispatcher("/resources/sitemap.xml").forward(req, response);
 			} else {
