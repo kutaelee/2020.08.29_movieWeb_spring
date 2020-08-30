@@ -52,23 +52,27 @@ $(document).ready(function () {
         type: 'GET',
         data: { pageNum: pageNum, link: link, keyword: keyword },
         success: function (result) {
-            $('.content-section>table').hide();
-            $('.content-section>h2').show();
+            if (result) {
+                $('.content-section>table').hide();
+                $('.content-section>h2').show();
 
-            for (let item of result) {
-                $('.content-section>table>tbody').append('<tr seq="' + item.DOCUMENT_SEQ + '" class="t-content" id="list-' + item.DOCUMENT_SEQ + '"></tr>');
+                for (let item of result) {
+                    $('.content-section>table>tbody').append('<tr seq="' + item.DOCUMENT_SEQ + '" class="t-content" id="list-' + item.DOCUMENT_SEQ + '"></tr>');
+                }
+
+                for (let item of result) {
+                    $('#list-' + item.DOCUMENT_SEQ)
+                        .append('<td class="seq">' + item.DOCUMENT_SEQ + '</td>')
+                        .append('<td class="title">' + item.TITLE + ' 다운로드 ' + '</td>')
+                        .append('<td class="regdate">' + item.REG_DATE + '</td>')
+                        .append('<td class="nicname">' + '관리자' + '</td></tr>');
+                }
+
+                $('.content-section>h2').hide();
+                $('.content-section>table').show();
+            } else {
+                $('.content-section').html('<h1>검색 결과가 없습니다.</h1>');
             }
-
-            for (let item of result) {
-                $('#list-' + item.DOCUMENT_SEQ)
-                    .append('<td class="seq">' + item.DOCUMENT_SEQ + '</td>')
-                    .append('<td class="title">' + item.TITLE + ' 다운로드 ' + '</td>')
-                    .append('<td class="regdate">' + item.REG_DATE + '</td>')
-                    .append('<td class="nicname">' + '관리자' + '</td></tr>');
-            }
-
-            $('.content-section>h2').hide();
-            $('.content-section>table').show();
         },
         error: function (e) {
             console.log(e);
@@ -152,7 +156,11 @@ $(document).ready(function () {
             if (num < 0) {
                 num = 1;
             }
-            window.location.href = link + '?pagenum=' + num;
+            if (!keyword || keyword == '') {
+                window.location.href = link + '?pagenum=' + num;
+            } else {
+                window.location.href = link + '?pagenum=' + num + '&keyword=' + keyword;
+            }
         } else if (id === 'next') {
             var num;
             var lastPage = Math.ceil(documentCount / 10.0);
