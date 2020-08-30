@@ -9,7 +9,7 @@ $(document).ready(function () {
         data: { seq: path[3] },
         success: function (result) {
             if (!result.TITLE_IMG_PATH || result.TITLE_IMG_PATH == 'null') {
-                result.TITLE_IMG_PATH = '/img/imgnull.jpg';
+                result.TITLE_IMG_PATH = '/img/coming_soon.jpg';
             }
             document.title = result.TITLE + ' - 파일콕';
             $('#document-title').text(result.TITLE);

@@ -46,7 +46,7 @@ button {
     user-select: none;
 }
 .document-section > img {
-    width: 30%;
+    width: 100%;
     margin-top: 2%;
     position: relative;
     box-shadow: 2px 2px 7px grey;
